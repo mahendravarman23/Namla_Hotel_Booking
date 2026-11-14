@@ -10,7 +10,7 @@ Featuring role-based JWT authentication, a signature **3D Sphere Showcase**, str
 
 ## 🌟 Key Features
 
-### 🌐 Client Features (Frontend)
+### 🌐 Frontend Features
 - **Interactive 3D Sphere Showcase:** Smooth orbit-based 3D gallery powered by pure CSS 3D matrix math; supports touch swipe, mouse drag, wheel scroll, and keyboard navigation.
 - **Strict Prefix Search:** Real-time filtering matching hotel titles from the first character (`title ILIKE 'term%'`) while instantly hiding non-matching items.
 - **Clean Pagination:** Configured for 8 cards per page with responsive page controls.
@@ -19,7 +19,7 @@ Featuring role-based JWT authentication, a signature **3D Sphere Showcase**, str
 - **Indian Rupee Formatting:** Localized currency formatting (`₹`).
 - **Responsive UI:** Custom CSS design system optimized for mobile, tablet, and desktop viewports without external bloated UI frameworks.
 
-### 🔐 Server & Security Features (Backend)
+### 🔐 Backend & Security Features
 - **Role-Based Access Control (RBAC):** Public read-only access for visitors; standard user authentication; protected CRUD operations restricted to users with `admin` role.
 - **Secure Password Hashing:** Node.js native `crypto.scrypt` with unique 16-byte cryptographically secure random salts (`salt:hash`).
 - **Stateless JWT Authentication:** HS256 signed JSON Web Tokens passed via standard `Authorization: Bearer <token>` headers.
@@ -42,7 +42,7 @@ Featuring role-based JWT authentication, a signature **3D Sphere Showcase**, str
 
 ```text
 hotel-app/
-├── client/                     # Frontend (React 19 + Vite)
+├── frontend/                   # Frontend (React 19 + Vite)
 │   ├── public/                 # Static public assets
 │   ├── src/
 │   │   ├── components/         # Reusable UI (Navbar, HotelCard, Pagination, Toast, Icons)
@@ -57,11 +57,11 @@ hotel-app/
 │   │   ├── App.jsx             # Route definitions & scroll restoration
 │   │   ├── main.jsx            # React root & Redux store provider
 │   │   └── styles.css          # Core CSS variables & base styles
-│   ├── tests/                  # Client unit tests (Node test runner)
+│   ├── tests/                  # Frontend unit tests (Node test runner)
 │   ├── package.json
 │   └── vite.config.js          # Vite config & API reverse proxy
 │
-└── server/                     # Backend (Node.js + Express + PostgreSQL)
+└── backend/                    # Backend (Node.js + Express + PostgreSQL)
     ├── src/
     │   ├── controllers/        # Business logic (hotels.controller.js, auth.controller.js)
     │   ├── db/
@@ -94,7 +94,7 @@ Create the database in PostgreSQL:
 CREATE DATABASE hotels_db;
 ```
 
-Configure your server environment in `hotel-app/server/.env`:
+Configure your backend environment in `hotel-app/backend/.env`:
 ```env
 PORT=4001
 DATABASE_URL=postgres://postgres:your_password@localhost:5432/hotels_db
@@ -104,7 +104,7 @@ NODE_ENV=development
 
 Apply schema and seed database with 20 hotels and users:
 ```bash
-cd server
+cd backend
 npm run db:schema
 node src/db/seed20Hotels.js
 node src/db/seedUsers.js
@@ -124,16 +124,16 @@ npm run dev
 
 #### Option C: Manual Launch (Two Terminals)
 
-**Terminal 1 — Backend Server:**
+**Terminal 1 — Backend:**
 ```bash
-cd server
+cd backend
 npm start
 # Server starts at http://localhost:4001
 ```
 
-**Terminal 2 — Frontend Client:**
+**Terminal 2 — Frontend:**
 ```bash
-cd client
+cd frontend
 npm run dev
 # Frontend runs at http://localhost:5173
 ```
@@ -166,13 +166,13 @@ Open your browser at **`http://localhost:5173`**.
 
 The project includes 38 comprehensive unit and integration tests using Node.js's native test runner (`node:test` and `node:assert/strict`):
 
-- **Client Tests (13 tests):** Format utilities, distance calculations, Redux hotels slice reducers, Redux auth slice reducers.
+- **Frontend Tests (13 tests):** Format utilities, distance calculations, Redux hotels slice reducers, Redux auth slice reducers.
   ```bash
-  cd client && npm test
+  cd frontend && npm test
   ```
-- **Server Tests (25 tests):** Password hashing/verification, JWT token generation/verification/expiration, payload validation middleware, and live API integration tests.
+- **Backend Tests (25 tests):** Password hashing/verification, JWT token generation/verification/expiration, payload validation middleware, and live API integration tests.
   ```bash
-  cd server && npm test
+  cd backend && npm test
   ```
 
 ---

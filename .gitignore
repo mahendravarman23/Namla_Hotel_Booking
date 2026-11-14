@@ -1,8 +1,9 @@
 node_modules/
 dist/
-server/uploads/*
-!server/uploads/seed/
-!server/uploads/.gitkeep
-server/.env
+backend/uploads/*
+!backend/uploads/seed/
+!backend/uploads/.gitkeep
+backend/.env
+.env
 *.log
 .DS_Store

@@ -29,7 +29,7 @@ app.use('/api', (_req, res) => {
   res.status(404).json({ message: 'Route not found.' });
 });
 
-const clientDist = path.join(__dirname, '..', '..', 'client', 'dist');
+const clientDist = path.join(__dirname, '..', '..', 'frontend', 'dist');
 if (fs.existsSync(clientDist)) {
   app.use(express.static(clientDist));
 

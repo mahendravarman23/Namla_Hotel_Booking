@@ -6,16 +6,16 @@ echo ========================================================
 
 cd /d "%~dp0"
 
-if exist "hotel-app\server" (
+if exist "hotel-app\backend" (
     echo Starting Backend Server on http://localhost:4001 ...
-    start "Hotel App - Backend Server (Port 4001)" cmd /k "cd hotel-app\server && npm start"
-    echo Starting Frontend Client on http://localhost:5173 ...
-    start "Hotel App - Frontend Client (Port 5173)" cmd /k "cd hotel-app\client && npm run dev"
+    start "Hotel App - Backend Server (Port 4001)" cmd /k "cd hotel-app\backend && npm start"
+    echo Starting Frontend on http://localhost:5173 ...
+    start "Hotel App - Frontend (Port 5173)" cmd /k "cd hotel-app\frontend && npm run dev"
 ) else (
     echo Starting Backend Server on http://localhost:4001 ...
-    start "Hotel App - Backend Server (Port 4001)" cmd /k "cd server && npm start"
-    echo Starting Frontend Client on http://localhost:5173 ...
-    start "Hotel App - Frontend Client (Port 5173)" cmd /k "cd client && npm run dev"
+    start "Hotel App - Backend Server (Port 4001)" cmd /k "cd backend && npm start"
+    echo Starting Frontend on http://localhost:5173 ...
+    start "Hotel App - Frontend (Port 5173)" cmd /k "cd frontend && npm run dev"
 )
 
 echo.
