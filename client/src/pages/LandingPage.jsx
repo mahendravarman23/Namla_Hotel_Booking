@@ -45,7 +45,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="hero__desc">
-            From regal lakefront havelis in Udaipur to breezy Goan beachfronts and skyline suites in Dubai — explore our signature 3D Sphere Showcase before you check in.
+            Where every journey finds its perfect stay. Discover exceptional places, experience unmatched comfort, and make every moment memorable.
           </p>
 
           <div className="hero__ctas">
