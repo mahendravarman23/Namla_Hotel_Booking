@@ -1,6 +1,6 @@
 # 🏨 Hotel Management System
 
-DEMO VIDEO:https://drive.google.com/file/d/13yjsfimiXCqhjlfaVEygkqi7FgngdQqH/view?usp=sharing
+DEMO VIDEO:https://drive.google.com/file/d/18aPoPYELRNWzh2n0j1SxtoJCFNgihMvb/view?usp=drivesdk
  
 A modern, full-stack luxury hotel discovery and management web application built with **React 19**, **Redux Toolkit**, **Vite**, **Node.js / Express**, and **PostgreSQL**.
 
