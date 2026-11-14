@@ -1,0 +1,223 @@
+.gx {
+  --bg: #f8fafc;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 24px 0 32px;
+  border-radius: var(--radius, 0.55rem);
+  border: 1px solid var(--line);
+  box-shadow: var(--card-shadow, 0 4px 16px rgba(0, 0, 0, 0.09));
+  margin-bottom: 2rem;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+.gx-live {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary, #3b71ca);
+  margin-bottom: 8px;
+}
+
+.gx-live i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  box-shadow: 0 0 8px rgba(255, 59, 59, 0.6);
+  animation: gxpulse 1.8s infinite ease-in-out;
+}
+
+@keyframes gxpulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.gx-stage {
+  position: relative;
+  height: 480px;
+  perspective: 1100px;
+  margin-top: 8px;
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+}
+
+.gx-stage:active {
+  cursor: grabbing;
+}
+
+.gx-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 175px;
+  height: 235px;
+  margin: -117px 0 0 -87px;
+  border: 0;
+  padding: 0;
+  border-radius: 12px;
+  background: #d9dcdf;
+  cursor: pointer;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
+  will-change: transform;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+  text-align: left;
+}
+
+.gx-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.gx-item__overlay {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 32px 10px 10px;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(15, 23, 42, 0.65) 60%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.gx-item__title {
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.gx-item__loc {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.gx-item__loc svg {
+  flex-shrink: 0;
+  stroke: #60a5fa;
+}
+
+.gx-open {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: gxfade 0.25s ease;
+}
+
+@keyframes gxfade {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.gx-open img {
+  width: min(88vw, 48vh);
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.gx-bar {
+  width: min(88vw, 48vh);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 14px;
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gx-bar__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.gx-bar__title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.gx-bar__loc {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--primary, #3b71ca);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gx-bar__price {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.gx-bar__desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.gx-bar__actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
